@@ -14,7 +14,6 @@ import SVProgressHUD
 
 class newsDescriptionViewController: UIViewController,WKNavigationDelegate {
     var newsdecriptionValue                      = JSON()
-    var webView : WKWebView!
     
     
     @IBOutlet weak var NewsImageView: UIImageView!
@@ -42,11 +41,6 @@ class newsDescriptionViewController: UIViewController,WKNavigationDelegate {
         contentLabel2.text = newsdecriptionValue["content"].stringValue
 
         publishDateLabel.text = convertDateFormater(date:  newsdecriptionValue["publishedAt"].stringValue)
-
-        
-        
-        
-        // Do any additional setup after loading the view.
     }
  
     //MARK:- button Action
