@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (5.2.2)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - SVProgressHUD (2.2.5)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - Moya
+  - SDWebImage (~> 3.7.6)
+  - SVProgressHUD
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Moya
+    - SDWebImage
+    - SVProgressHUD
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: 0acb27b40f763fdc93592a0934b6e521f965c7aa
+
+COCOAPODS: 1.9.3
