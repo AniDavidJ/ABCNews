@@ -48,20 +48,7 @@ class newsDescriptionViewController: UIViewController,WKNavigationDelegate {
         
         // Do any additional setup after loading the view.
     }
-    //MARK:- WKNavigationDelegate
-    private func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError) {
-        print(_: error.localizedDescription)
-    }
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Strat to load")
-        // SVProgressHUD.show(withStatus: "Loading...")
-        
-    }; func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("finish to load")
-        //  SVProgressHUD.dismiss()
-        
-    }
-    
+ 
     //MARK:- button Action
     
     @IBAction func shareWithFriendsAction(_ sender: Any) {
