@@ -59,7 +59,7 @@ class newsDescriptionViewController: UIViewController,WKNavigationDelegate {
             print("yes available")
             
         }
-        
+        GlobalClass.showAlertDialog(message: "Your image has been saved successfully ", target: self)
     }
     func saveImage(image: UIImage) -> Bool {
         guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
@@ -69,7 +69,6 @@ class newsDescriptionViewController: UIViewController,WKNavigationDelegate {
             return false
         }
         do {
-            GlobalClass.showAlertDialog(message: "Your image has been saved successfully ", target: self)
             let str = newsdecriptionValue["publishedAt"].stringValue
             try data.write(to: directory.appendingPathComponent("newsImage\(str).png")!)
             return true
