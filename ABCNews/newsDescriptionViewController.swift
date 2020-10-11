@@ -30,19 +30,18 @@ class newsDescriptionViewController: UIViewController,WKNavigationDelegate {
         NewsImageView.layer.cornerRadius    = 2
         NewsImageView.clipsToBounds         = true
         saveImageButton.layer.cornerRadius    = 2
-            saveImageButton.clipsToBounds         = true
+        saveImageButton.clipsToBounds         = true
         saveImageButton.layer.borderWidth = 1
         saveImageButton.layer.borderColor = UIColor.darkGray.cgColor
-
+        
         DescriptionLabel.text = newsdecriptionValue["title"].stringValue
         authorLabel.text = newsdecriptionValue["author"].stringValue
         NewsImageView.sd_setImage(with: URL(string: newsdecriptionValue["urlToImage"].stringValue), placeholderImage: #imageLiteral(resourceName: "Avatar"))
         contentLabel.text = newsdecriptionValue["description"].stringValue
-        contentLabel2.text = newsdecriptionValue["content"].stringValue
-
+        contentLabel2.text = newsdecriptionValue["content"].stringValue 
         publishDateLabel.text = convertDateFormater(date:  newsdecriptionValue["publishedAt"].stringValue)
     }
- 
+    
     //MARK:- button Action
     
     @IBAction func shareWithFriendsAction(_ sender: Any) {
@@ -55,11 +54,12 @@ class newsDescriptionViewController: UIViewController,WKNavigationDelegate {
     }
     @IBAction func SaveImageAction(_ sender: Any) {
         let success = saveImage(image: NewsImageView.image ?? #imageLiteral(resourceName: "Avatar"))
-        if let image = getSavedImage(named: "newsImage") {
-print("yes available")
+        let str = newsdecriptionValue["publishedAt"].stringValue
+        if let image = getSavedImage(named: "newsImage\(str)") {
+            print("yes available")
             
         }
-
+        
     }
     func saveImage(image: UIImage) -> Bool {
         guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
@@ -70,7 +70,8 @@ print("yes available")
         }
         do {
             GlobalClass.showAlertDialog(message: "Your image has been saved successfully ", target: self)
-            try data.write(to: directory.appendingPathComponent("newsImage.png")!)
+            let str = newsdecriptionValue["publishedAt"].stringValue
+            try data.write(to: directory.appendingPathComponent("newsImage\(str).png")!)
             return true
         } catch {
             print(error.localizedDescription)
@@ -79,6 +80,7 @@ print("yes available")
     }
     func getSavedImage(named: String) -> UIImage? {
         if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
+            print(URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
             return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
         }
         return nil
